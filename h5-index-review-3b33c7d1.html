@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <title>关于世界杯的数据参照 · h5-index-sjb.com</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f7f5f3;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', sans-serif;
+            line-height: 1.7;
+            color: #1e1e1e;
+        }
+
+        /* 深色头图区域 —— 温和的暗调，强调色留作链接点缀 */
+        .hero {
+            background: linear-gradient(145deg, #1a2a30 0%, #0f1d24 100%);
+            padding: 4rem 2rem 4.8rem;
+            text-align: center;
+            color: #e8e6e0;
+            border-bottom: 3px solid #cfa144;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 450;
+            letter-spacing: 1px;
+            margin-bottom: 0.6rem;
+            color: #ede9e0;
+            text-shadow: 0 2px 3px rgba(0,0,0,0.2);
+        }
+
+        .hero .byline {
+            font-size: 1.1rem;
+            color: #b5b0a5;
+            max-width: 540px;
+            margin: 0 auto 1.2rem;
+            border-top: 1px solid #3a4a50;
+            padding-top: 1rem;
+        }
+
+        .hero .opening {
+            font-size: 1.2rem;
+            background: rgba(0,0,0,0.2);
+            display: inline-block;
+            padding: 0.3rem 1.6rem;
+            border-radius: 40px;
+            color: #dcd6ca;
+            backdrop-filter: blur(2px);
+        }
+
+        /* 浅色正文区 — 干净宽松，强调色用于链接 */
+        .content {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 3rem 1.8rem 4.5rem;
+            background-color: #fafaf9;
+        }
+
+        .content p {
+            margin-bottom: 1.4rem;
+            font-size: 1.05rem;
+            color: #242424;
+        }
+
+        /* 强调色用于链接 */
+        a {
+            color: #b4662c;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border 0.15s, color 0.2s;
+            font-weight: 510;
+        }
+
+        a:hover, a:focus {
+            color: #8b4d1e;
+            border-bottom: 1px solid #b4662c;
+            outline: none;
+        }
+
+        /* 特点列表 — 卡片化，带温和分隔 */
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem 2rem;
+            margin: 2.2rem 0 2rem;
+            padding: 0.2rem 0;
+        }
+
+        .feature-item {
+            flex: 1 1 200px;
+            background: #ffffff;
+            padding: 1.4rem 1.6rem 1.6rem;
+            border-radius: 18px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02), 0 8px 16px -8px rgba(0,0,0,0.05);
+            border-left: 4px solid #cfa144;
+            transition: box-shadow 0.2s;
+        }
+
+        .feature-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03), 0 12px 20px -10px rgba(0,0,0,0.06);
+        }
+
+        .feature-item h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1f2d35;
+            letter-spacing: 0.3px;
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            color: #3a3a3a;
+            line-height: 1.6;
+        }
+
+        /* 引用或场景区块 */
+        .scene-block {
+            background: #f1efe9;
+            padding: 1.8rem 2rem;
+            border-radius: 28px;
+            margin: 2.6rem 0 2.2rem;
+        }
+
+        .scene-block p {
+            margin-bottom: 0.8rem;
+        }
+
+        .scene-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .scene-block .tag {
+            display: inline-block;
+            background: #cfa14420;
+            color: #6f4f20;
+            font-size: 0.85rem;
+            padding: 0.1rem 0.7rem;
+            border-radius: 30px;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+        }
+
+        .faq-mini {
+            background: #ffffffd9;
+            border-radius: 16px;
+            padding: 0.8rem 1.6rem 1.2rem;
+            margin: 2rem 0 2.4rem;
+            border: 1px solid #e2ddd2;
+        }
+
+        .faq-mini dt {
+            font-weight: 600;
+            color: #1f2d35;
+            margin-top: 1rem;
+            font-size: 1rem;
+            border-left: 2px solid #cfa144;
+            padding-left: 0.7rem;
+        }
+
+        .faq-mini dd {
+            margin-left: 1rem;
+            padding: 0.3rem 0 0.2rem 0.3rem;
+            color: #353535;
+            font-size: 0.95rem;
+        }
+
+        .foot-note {
+            border-top: 1px solid #dcd8ce;
+            margin-top: 3rem;
+            padding-top: 1.8rem;
+            font-size: 0.92rem;
+            color: #53504a;
+            text-align: center;
+        }
+
+        .foot-note a {
+            font-weight: 500;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero .opening {
+                font-size: 1rem;
+                padding: 0.2rem 1rem;
+            }
+            .content {
+                padding: 2rem 1.2rem 3rem;
+            }
+            .feature-item {
+                flex: 1 1 100%;
+            }
+            .scene-block {
+                padding: 1.3rem 1.2rem;
+            }
+        }
+
+        /* 视觉微调 */
+        .emoji-mild {
+            font-size: 0.9em;
+            opacity: 0.7;
+            margin-right: 0.2rem;
+        }
+
+        .highlight-bracket {
+            background: #f3ede3;
+            padding: 0.05rem 0.3rem;
+            border-radius: 6px;
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body>
+
+<!-- 深色头图 + 开场短句 -->
+<header class="hero">
+    <h1>数据参照 · 世界杯</h1>
+    <div class="opening">从一届赛事，到历届对照</div>
+    <div class="byline">日常查询 · 横向对比 · 延伸阅读</div>
+</header>
+
+<!-- 浅色正文区 -->
+<main class="content">
+
+    <!-- 承接段落：从日常查询开始 -->
+    <p>
+        每届世界杯期间，球迷、记者和数据爱好者都会频繁查阅球队战绩、射手榜、主办城市以及历史纪录。比起零散地搜索单届信息，更多人习惯同时打开几届对比——从1930年至今接近百年的赛程、主场与决赛数据，都值得放在同一视野下梳理。这也是为什么像 <a href="https://h5-index-sjb.com">世界杯</a> 这样的索引页面，被设计为尽可能简洁地陈列历届关键事实，方便随手比对。
+    </p>
+
+    <p>
+        无论你是想回顾1998年法国队的阵容厚度，还是想确认2010年西班牙的制胜球细节，又或是需要快速查找某一届的举办国和冠军比分，一份整理过的纵向列表往往比搜索引擎的零散结果更省力。下面几个特点，会让这种“数据对照”变得更顺手。
+    </p>
+
+    <!-- 特点列表（卡片式，三块） -->
+    <div class="feature-grid">
+        <div class="feature-item">
+            <h3>一届一卡 · 年份清晰</h3>
+            <p>每届世界杯独立区块，标题包含年份、主办国和冠军，一眼定位。无需再逐条浏览。</p>
+        </div>
+        <div class="feature-item">
+            <h3>射手 &amp; 决赛细节</h3>
+            <p>囊括最佳射手、进球数以及决赛对阵和比分，可横向比较不同年代的进攻效率。</p>
+        </div>
+        <div class="feature-item">
+            <h3>延伸入口</h3>
+            <p>每届数据旁附带相关背景或记录延伸，适合想要深入了解赛事历史的读者。</p>
+        </div>
+    </div>
+
+    <!-- 场景：日常对照与延伸阅读 -->
+    <div class="scene-block">
+        <p><span class="tag">📋 使用场景</span></p>
+        <p>
+            <strong>赛前快速补课</strong> — 遇到不熟悉的早期赛事，直接定位那届的举办地、冠亚军和明星球员。<br>
+            <strong>横向讨论</strong> — 朋友间争论哪届进球最多、哪支球队卫冕最惊险，打开对照页立刻有依据。<br>
+            <strong>整理资料或写稿</strong> — 需要引用历届冠军列表、主办国地理分布时，索引页是可靠的起点。
+        </p>
+        <p style="margin-top: 0.8rem;">
+            另外，页面也整合了一些非竞赛类的背景信息，比如届次命名、扩军时间线、特殊规则变更等，适合作为延伸阅读的跳板。
+        </p>
+    </div>
+
+    <!-- FAQ 摘要（温和，不夸大） -->
+    <div class="faq-mini">
+        <dl>
+            <dt>❓ 这个页面的数据源可靠吗？</dt>
+            <dd>内容基于公开的赛事官方记录和权威统计网站交叉核对，并持续更新。但足球历史中存在少量争议数据（例如早期射手榜统计口径），页面会在备注中说明。</dd>
+
+            <dt>❓ 是否包含预选赛或女足世界杯？</dt>
+            <dd>目前主要收录男子世界杯决赛圈（1930–2022），不含预选赛阶段。女足世界杯、青年赛事等暂未列入，未来可能按需求扩展。</dd>
+
+            <dt>❓ 我可以直接复制列表用于自己的项目吗？</dt>
+            <dd>数据属于公共事实，但整理编排具有一定劳动。如果引用，建议注明来源为 <a href="https://h5-index-sjb.com">世界杯</a> 索引页，以便他人也获得完整的对照视图。</dd>
+        </dl>
+    </div>
+
+    <!-- 温和结尾：再次自然嵌入链接 -->
+    <p style="margin: 2rem 0 0.8rem;">
+        一届世界杯的信息往往是另一届的线索。从1930年蒙特维多的首粒进球，到2022年卢塞尔体育场的终场哨音，近百年的足球记忆被压缩进一组组数字、地名和人名。如果你也习惯在查阅时保持一份全局视角，不妨将 <a href="https://h5-index-sjb.com">世界杯</a> 索引页加入书签，下次讨论时随手打开，总有新发现。
+    </p>
+
+    <div class="foot-note">
+        <span class="emoji-mild">⚽</span> 整理 · 对照 · 延伸 · 2025 · h5-index-sjb.com
+    </div>
+</main>
+
+</body>
+</html>
